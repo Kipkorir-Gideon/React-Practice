@@ -6,6 +6,7 @@ import Greetings from './components/Greetings'
 import * as operator from './components/calculator'
 import Card from './components/Card'
 import contacts from './components/contacts'
+import Profile from './components/Profile'
 
 
 
@@ -28,6 +29,7 @@ function App() {
       </ul>
       <div>
       <h1 className="heading">My Contacts</h1>
+        <Profile img="/images/87479324.jpeg" />
         <Card
           name={contacts[0].name}
           img={contacts[0].imgURL}

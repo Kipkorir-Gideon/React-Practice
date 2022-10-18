@@ -1,9 +1,11 @@
+import Profile from './Profile'
+
 function Card(props) {
     return (
       <div className="card">
         <div className="top">
           <h2 className="name">{props.name}</h2>
-          <img className="circle-img" src={props.img} alt="Ngetich" />
+          <Profile img={props.img} />
         </div>
         <div className="bottom">
           <p className="info">{props.tel}</p>

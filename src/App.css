@@ -53,8 +53,15 @@ img {
   margin: 10% 4rem 0;
 }
 
+img {
+  margin: 2.6rem 3rem 0 0;
+  width: 100px;
+  height: 100px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+}
 .card img {
-  margin: 3rem 3rem 0 0;
+  margin: 2.6rem 3rem 0 0;
   width: 100px;
   height: 100px;
   border: 8px solid #fff;
