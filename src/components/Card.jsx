@@ -4,6 +4,7 @@ function Card(props) {
     return (
       <div className="card">
         <div className="top">
+          <p>{props.id}</p>
           <h2 className="name">{props.name}</h2>
           <Profile img={props.img} />
         </div>
@@ -15,5 +16,21 @@ function Card(props) {
     )
   }
 
+  function Emoji(props) {
+    return(
+      <dl className="dictionary">
+        <div className="term">
+          <dt>
+            <span className="emoji" role="img" aria-label="Tense Biceps">{props.emoji}</span>
+            <span>{props.name}</span>
+          </dt>
+          <dd>
+            {props.meaning}
+          </dd>
+        </div>
+      </dl>
+    )
+  }
 
-  export default Card;
+
+  export {Card, Emoji};
