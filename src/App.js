@@ -1,16 +1,51 @@
 import logo from './logo.svg';
 import './App.css';
+import Heading from './components/Heading'
+import List from './components/List'
+import Greetings from './components/Greetings'
+import * as operator from './components/calculator'
+import Card from './components/Card'
+import contacts from './components/contacts'
 
 
-const food = "Sweet Potatoes"
+
+
+
+
+
 function App() {
+
   return (
     <div className="App">
-      <h1>My Favorite Foods</h1>
-      <div className="images">
-        <img src="https://imgs.search.brave.com/qbnlg0ceorfzb2ho9tCNgYAtaiiE-0_2RY6hSSdpRyc/rs:fit:844:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5J/cUQ4Y0xxWlNROG1Z/YmJlaGZyTm5nSGFF/SyZwaWQ9QXBp"></img>
-        <img src="https://imgs.search.brave.com/xeQsD62_J1KcTH766jlLO_CWmDuTU563SKfMpLsjfUQ/rs:fit:355:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5F/X0xWS29BZVdYNGtO/Yms3NW03SGl3SGFK/NCZwaWQ9QXBp"></img>
-        <img src="https://imgs.search.brave.com/WG-CGT7c9hKjRZuf9kNs4dT5Q4nbAWBZrAwHqt8J4ak/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5E/aU51RHBFcXlBZTRM/T0J5MU9EeVFnSGFF/OCZwaWQ9QXBp"></img>
+      <Greetings />
+      <Heading />
+      <List />
+      <ul>
+        <li>{operator.add(1, 2)}</li>
+        <li>{operator.multiply(2, 3)}</li>
+        <li>{operator.subtract(7, 2)}</li>
+        <li>{operator.divide(5, 2)}</li>
+      </ul>
+      <div>
+      <h1 className="heading">My Contacts</h1>
+        <Card
+          name={contacts[0].name}
+          img={contacts[0].imgURL}
+          tel={contacts[0].phone} 
+          email={contacts[0].email} 
+        />
+        <Card
+          name={contacts[1].name}
+          img={contacts[1].imgURL}
+          tel={contacts[1].phone} 
+          email={contacts[1].email} 
+        />
+        <Card
+          name={contacts[2].name}
+          img={contacts[2].imgURL}
+          tel={contacts[2].phone} 
+          email={contacts[2].email} 
+        />
       </div>
     </div>
   );
