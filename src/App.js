@@ -28,9 +28,9 @@ function createEmojiCard(emoji) {
   return (
     <Emoji
       key={emoji.id}
-      emoji={emoji.emoji}
+      icon={emoji.emoji}
       name={emoji.name}
-      meaning={emoji.meaning}
+      description={emoji.meaning}
     /> 
   )
 }
@@ -66,5 +66,84 @@ function App() {
     </div>
   );
 };
+
+
+
+
+// var numbers = [3, 56, 2, 48,5]
+
+// function double(x) {
+//   return x * 2;
+// }
+
+// const newNumbers = numbers.map(double);
+
+// var newNumbers = [];
+
+
+// numbers.forEach(function (x){
+//   return newNumbers.push(x * 2)
+// });
+
+// const newNumbers = numbers.map( (x) => { 
+//   return x * 2;
+// })
+
+
+
+// const newNumbers = numbers.filter( (num) => {
+//   return num >10;
+// })
+
+// console.log(newNumbers)
+
+// var newNumbers = [];
+
+// numbers.forEach(function (num) {
+//   if (num > 10) {
+//     newNumbers.push(num);
+//   }
+// })
+
+// var newNumber = 0;
+
+// numbers.forEach(function (currentNumber) {
+//   newNumber += currentNumber;
+// })
+
+// var newNumber = numbers.reduce( (accumulator, currentNumber) => {
+//   console.log("Accumulator: " + accumulator);
+//   console.log("Current Number: " + currentNumber);
+//     return accumulator + currentNumber;
+// })
+
+// console.log(newNumber)
+
+// var newNumber = numbers.find( (num) => {
+//   return num > 10;
+// })
+
+// var newNumber = numbers.findIndex( (num) => {
+//   return num > 10;
+// })
+
+// console.log(newNumber);
+
+// var meaning = []
+// emojis.forEach(function (emoji) {
+//   meaning.push(emoji.meaning)
+// })
+
+// var meaning = emojis.map( (emoji) => {
+//   return emoji.meaning.substring(0, 100);
+// })
+
+// console.log(meaning)
+
+// var numbers = [3, 56, 2, 48,5]
+
+// const newNumbers = numbers.map( num => num * num);
+
+// console.log(newNumbers);
 
 export default App;
