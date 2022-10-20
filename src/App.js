@@ -10,32 +10,6 @@ import emojis from './components/emojis'
 
 
 
-function createCard(contact) {
-  return (
-    <Card
-      id ={contact.id}
-      key={contact.id}
-      name={contact.name}
-      img={contact.imgURL}
-      tel={contact.phone}
-      email={contact.email}
-    />
-  )
-}
-
-
-function createEmojiCard(emoji) {
-  return (
-    <Emoji
-      key={emoji.id}
-      icon={emoji.emoji}
-      name={emoji.name}
-      description={emoji.meaning}
-    /> 
-  )
-}
-
-
 
 
 function App() {
@@ -52,15 +26,33 @@ function App() {
         <li>{operator.divide(5, 2)}</li>
       </ul>
       <div>
-      <h1 className="heading">My Contacts</h1>
-      {contacts.map(createCard)}
+        <h1 className="heading">My Contacts</h1>
+        {contacts.map((contact) => {
+          return (
+            <Card
+              id ={contact.id}
+              key={contact.id}
+              name={contact.name}
+              img={contact.imgURL}
+              tel={contact.phone}
+              email={contact.email}
+            />
+          )
+        })}
       </div>
 
       <div>
-      <h1>
-        <span>emojipedia</span>
-      </h1>
-      {emojis.map(createEmojiCard)}
+        <h1>
+          <span>emojipedia</span>
+        </h1>
+        {emojis.map((emoji) => (
+            <Emoji
+              key={emoji.id}
+              icon={emoji.emoji}
+              name={emoji.name}
+              description={emoji.meaning}
+            /> 
+        ))}
 
       </div>
     </div>
