@@ -7,10 +7,14 @@ import * as operator from './components/calculator'
 import {Card, Emoji} from './components/Card'
 import contacts from './components/contacts'
 import emojis from './components/emojis'
+import Input from './components/conditionals/Input'
+import Login from './components/conditionals/Login'
 
 
 
+var isLoggedIn = true;
 
+const currentTime = new Date().getHours()
 
 function App() {
 
@@ -54,6 +58,11 @@ function App() {
             /> 
         ))}
 
+      </div>
+
+      <div className="container">
+        {isLoggedIn ? <h1>Hello</h1> : <Login />}
+        {currentTime > 12 && <h1>Why are you still working?</h1>}
       </div>
     </div>
   );
