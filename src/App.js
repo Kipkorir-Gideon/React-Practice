@@ -16,15 +16,20 @@ import { useState } from "react"
 var userIsRegistered = false;
 
 
-
-const currentTime = new Date().getHours()
-
 function App() {
+
+  let time = new Date().toLocaleTimeString();
+
+  const [currentTime, setState] = useState(time);
 
   const [count, setCount] = useState(0);
 
+  console.log(currentTime);
   console.log(count)
 
+  function updateTime() {
+    setState(currentTime + 1)
+  }
   function increase() {  
     setCount(count + 1)
   }
@@ -33,6 +38,10 @@ function App() {
     <div className="App">
 
       <div className="container">
+        <h1>{currentTime}</h1>
+        <button onClick={updateTime}>Get Time</button>
+
+        
         <h1>{count}</h1>
         <button onClick={increase}>+</button>
       </div>
