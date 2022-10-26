@@ -9,17 +9,36 @@ import contacts from './components/contacts'
 import emojis from './components/emojis'
 import Input from './components/conditionals/Input'
 import Login from './components/conditionals/Login'
+import { useState } from "react"
 
 
 
 var userIsRegistered = false;
 
+
+
 const currentTime = new Date().getHours()
 
 function App() {
 
+  const [count, setCount] = useState(0);
+
+  console.log(count)
+
+  function increase() {  
+    setCount(count + 1)
+  }
+
   return (
     <div className="App">
+
+      <div className="container">
+        <h1>{count}</h1>
+        <button onClick={increase}>+</button>
+      </div>
+
+
+
       <Greetings />
       <Heading />
       <List />
