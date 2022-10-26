@@ -12,7 +12,7 @@ import Login from './components/conditionals/Login'
 
 
 
-var isLoggedIn = true;
+var userIsRegistered = false;
 
 const currentTime = new Date().getHours()
 
@@ -61,8 +61,7 @@ function App() {
       </div>
 
       <div className="container">
-        {isLoggedIn ? <h1>Hello</h1> : <Login />}
-        {currentTime > 12 && <h1>Why are you still working?</h1>}
+        <Login isRegistered={userIsRegistered} />
       </div>
     </div>
   );
