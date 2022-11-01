@@ -25,14 +25,14 @@ var userIsRegistered = false;
 
 // console.log(sound)
 
-const [honda, tesla] = cars
+// const [honda, tesla] = cars
 
-const {speedStats: {topSpeed: hondaTopSpeed}} = honda
+// const {speedStats: {topSpeed: hondaTopSpeed}} = honda
 
-const {speedStats: {topSpeed: teslaTopSpeed}} = tesla
+// const {speedStats: {topSpeed: teslaTopSpeed}} = tesla
 
-const {colorsByPopularity: [hondaTopColor]} = honda
-const {colorsByPopularity: [teslaTopColor]} = tesla
+// const {colorsByPopularity: [hondaTopColor]} = honda
+// const {colorsByPopularity: [teslaTopColor]} = tesla
 
 function App() {
 
@@ -56,13 +56,42 @@ function App() {
   //   setCount(count + 1)
   // }
 
-  const model = cars.model
+  // const model = cars.model
+
+
+
+  const [headingText, setHeadingText] = useState("Hello")
+  const [isMouseOver, setMouseOver] = useState(false);
+
+
+  function handleClick() {
+    setHeadingText("Submitted")
+  }
+
+  function handleMouseOver() {
+    setMouseOver(true);
+  }
+
+  function handleMouseOut() {
+    setMouseOver(false);
+  }
 
 
   return (
     <div className="App">
+      <div className="container">
+        <h1>{headingText}</h1>
+        <input type="text" placeholder="What's your name?" />
+        <button style={{ backgroundColor: isMouseOver ? "black" : "white" }} onClick={handleClick} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Submit</button>
+      </div>
 
-      <table>
+
+
+
+
+
+
+      {/* <table>
         <tr>
           <th>Brand</th>
           <th>Top Speed</th>
@@ -77,7 +106,7 @@ function App() {
           <td>{hondaTopSpeed}</td>
           <td>{hondaTopColor}</td>
         </tr>
-      </table>
+      </table> */}
 
       {/* <div className="container">
         <h1>{currentTime}</h1>
