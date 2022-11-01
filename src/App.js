@@ -10,45 +10,87 @@ import emojis from './components/emojis'
 import Input from './components/conditionals/Input'
 import Login from './components/conditionals/Login'
 import { useState } from "react"
+import cars from './components/destructuring/practice'
+import animals from './components/destructuring/data'
 
 
 
 var userIsRegistered = false;
 
+// const [cat, dog] = animals
+
+// console.log(cat)
+
+// const {name, sound} = cat
+
+// console.log(sound)
+
+const [honda, tesla] = cars
+
+const {speedStats: {topSpeed: hondaTopSpeed}} = honda
+
+const {speedStats: {topSpeed: teslaTopSpeed}} = tesla
+
+const {colorsByPopularity: [hondaTopColor]} = honda
+const {colorsByPopularity: [teslaTopColor]} = tesla
 
 function App() {
 
-  let time = new Date().toLocaleTimeString();
+  // setInterval(updateTime, 1000);
 
-  const [currentTime, setState] = useState(time);
+  // let time = new Date().toLocaleTimeString();
 
-  const [count, setCount] = useState(0);
+  // const [currentTime, setState] = useState(time);
 
-  console.log(currentTime);
-  console.log(count)
+  // const [count, setCount] = useState(0);
 
-  function updateTime() {
-    setState(currentTime + 1)
-  }
-  function increase() {  
-    setCount(count + 1)
-  }
+  // console.log(currentTime);
+  // console.log(count)
+
+  // function updateTime() {
+  //   const newTime = new Date().toLocaleTimeString();
+  //   setState(newTime)
+  // }
+
+  // function increase() {  
+  //   setCount(count + 1)
+  // }
+
+  const model = cars.model
+
 
   return (
     <div className="App">
 
-      <div className="container">
+      <table>
+        <tr>
+          <th>Brand</th>
+          <th>Top Speed</th>
+        </tr>
+        <tr>
+          <td>{tesla.model}</td>
+          <td>{teslaTopSpeed}</td>
+          <td>{teslaTopColor}</td>
+        </tr>
+        <tr>
+          <td>{honda.model}</td>
+          <td>{hondaTopSpeed}</td>
+          <td>{hondaTopColor}</td>
+        </tr>
+      </table>
+
+      {/* <div className="container">
         <h1>{currentTime}</h1>
         <button onClick={updateTime}>Get Time</button>
 
         
         <h1>{count}</h1>
         <button onClick={increase}>+</button>
-      </div>
+      </div> */}
 
 
 
-      <Greetings />
+      {/* <Greetings />
       <Heading />
       <List />
       <ul>
@@ -90,7 +132,7 @@ function App() {
 
       <div className="container">
         <Login isRegistered={userIsRegistered} />
-      </div>
+      </div> */}
     </div>
   );
 };
