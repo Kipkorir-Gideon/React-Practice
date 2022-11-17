@@ -79,24 +79,58 @@ function App() {
 
 
 
-  const [name, setName] = useState("");
-  const [nameText, setNameText] = useState("");
+  // const [name, setName] = useState("");
+  // const [nameText, setNameText] = useState("");
+
+  // function handleChange(event) {
+  //   setName(event.target.value)
+  // }
+
+  // function handleClick(event) {
+  //   setNameText(name)
+
+  //   event.preventDefault()
+  // }
+
+
+  const [fullName, setFullName] = useState({
+    fName: "",
+    lName: ""
+  });
 
   function handleChange(event) {
-    setName(event.target.value)
+    const {value, name} = event.target;
+
+    setFullName(prevValue => {
+      if (name === "fName") {
+        return {
+          fName: value,
+          lName: prevValue.lName
+        };
+      } else if (name === "lName") {
+        return {
+          fName: prevValue.fName,
+          lName: value
+        }
+      }
+    })
   }
 
-  function handleClick(event) {
-    setNameText(name)
 
-    event.preventDefault()
-  }
 
 
   return (
     <div className="App">
       <div className="container">
-        <h1>Hello {nameText}</h1>
+        <h1>Hello {fullName.fName} {fullName.lName}</h1>
+        <form>
+          <input name="fName" onChange={handleChange} placeholder="First Name" value={fullName.fName}/>
+          <input name="lName" onChange={handleChange} placeholder="Last Name" value={fullName.lName}/>
+          <button>Submit</button>
+        </form>
+
+
+        {/* <h1>Hello {nameText}</h1>
         <form onSubmit={handleClick}>
           <input
             onChange={handleChange} 
@@ -105,7 +139,7 @@ function App() {
             value={name} 
           />
           <button type="submit">Submit</button>
-        </form>
+        </form> */}
 
 
 
