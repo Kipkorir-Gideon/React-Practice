@@ -93,27 +93,63 @@ function App() {
   // }
 
 
-  const [fullName, setFullName] = useState({
-    fName: "",
-    lName: ""
-  });
+
+
+  // const [contact, setContact] = useState({
+  //   fName: "",
+  //   lName: "",
+  //   email: ""
+  // });
+
+  // function handleChange(event) {
+  //   const {value, name} = event.target;
+
+  //   setContact(prevValue => {
+  //     // if (name === "fName") {
+  //     //   return {
+  //     //     fName: value,
+  //     //     lName: prevValue.lName,
+  //     //     email: prevValue.email
+  //     //   };
+  //     // } else if (name === "lName") {
+  //     //   return {
+  //     //     fName: prevValue.fName,
+  //     //     lName: value,
+  //     //     email: prevValue.email
+  //     //   }
+  //     // } else if (name === "email") {
+  //     //   return {
+  //     //     fName: prevValue.fName,
+  //     //     lName: prevValue.lName,
+  //     //     email: value
+  //     //   }
+  //     // }
+
+  //     return {
+  //       ...prevValue,
+  //       [name]: value
+  //     }
+  //   })
+  // }
+
+
+
+  const [todo, setToDo] = useState("");
+
+  const [todoItems, setTodoItems] = useState([]);
 
   function handleChange(event) {
-    const {value, name} = event.target;
+    const newTodo = event.target.value;
+    setToDo(newTodo);
+  }
 
-    setFullName(prevValue => {
-      if (name === "fName") {
-        return {
-          fName: value,
-          lName: prevValue.lName
-        };
-      } else if (name === "lName") {
-        return {
-          fName: prevValue.fName,
-          lName: value
-        }
-      }
-    })
+  function handleClick(event) {
+    setTodoItems(prevItems => {
+      return [ ...prevItems, todo]
+    });
+    setToDo("")
+
+    event.preventDefault();
   }
 
 
@@ -122,12 +158,35 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Hello {fullName.fName} {fullName.lName}</h1>
-        <form>
-          <input name="fName" onChange={handleChange} placeholder="First Name" value={fullName.fName}/>
-          <input name="lName" onChange={handleChange} placeholder="Last Name" value={fullName.lName}/>
-          <button>Submit</button>
+        <div className="heading">
+          <h1>To-Do List</h1>
+        </div>
+        <div className="form">
+        <form onSubmit={handleClick}>
+          <input type="text" onChange={handleChange} placeholder="Write your ToDo" value={todo} />
+          <button type="submit">
+            <span>Add</span>
+          </button>
         </form>
+        </div>
+        <div>
+          <ul>
+            {todoItems.map( (todoItem) => {
+              return <li>{todoItem}</li>
+            })}
+          </ul>
+        </div>
+
+
+
+        {/* <h1>Hello {contact.fName} {contact.lName}</h1>
+        <p>{contact.email}</p>
+        <form>
+          <input name="fName" onChange={handleChange} placeholder="First Name" value={contact.fName}/>
+          <input name="lName" onChange={handleChange} placeholder="Last Name" value={contact.lName}/>
+          <input name="email" onChange={handleChange}placeholder="Email" value={contact.email}/>
+          <button>Submit</button>
+        </form> */}
 
 
         {/* <h1>Hello {nameText}</h1>
