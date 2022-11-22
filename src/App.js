@@ -12,6 +12,7 @@ import Login from './components/conditionals/Login'
 import { useState } from "react"
 import cars from './components/destructuring/practice'
 import animals from './components/destructuring/data'
+import ToDoItem from './components/todo/ToDoItem'
 
 
 
@@ -152,6 +153,12 @@ function App() {
     event.preventDefault();
   }
 
+  function deleteItem() {
+    setTodoItems(prevItems => {
+      
+    })
+  }
+
 
 
 
@@ -171,8 +178,13 @@ function App() {
         </div>
         <div>
           <ul>
-            {todoItems.map( (todoItem) => {
-              return <li>{todoItem}</li>
+            {todoItems.map( (todoItem, index) => {
+              return <ToDoItem 
+                key={index} 
+                id={index} 
+                text={todoItem} 
+                onChecked={deleteItem} 
+              />
             })}
           </ul>
         </div>
