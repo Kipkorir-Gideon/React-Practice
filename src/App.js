@@ -153,9 +153,11 @@ function App() {
     event.preventDefault();
   }
 
-  function deleteItem() {
+  function deleteItem(id) {
     setTodoItems(prevItems => {
-      
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      })
     })
   }
 
