@@ -13,6 +13,7 @@ import { useState } from "react"
 import cars from './components/destructuring/practice'
 import animals from './components/destructuring/data'
 import ToDoItem from './components/todo/ToDoItem'
+import InputArea from './components/todo/InputArea'
 
 
 
@@ -134,23 +135,15 @@ function App() {
   // }
 
 
-
-  const [todo, setToDo] = useState("");
+ 
 
   const [todoItems, setTodoItems] = useState([]);
 
-  function handleChange(event) {
-    const newTodo = event.target.value;
-    setToDo(newTodo);
-  }
 
-  function handleClick(event) {
+  function handleClick(todo) {
     setTodoItems(prevItems => {
       return [ ...prevItems, todo]
     });
-    setToDo("")
-
-    event.preventDefault();
   }
 
   function deleteItem(id) {
@@ -170,14 +163,9 @@ function App() {
         <div className="heading">
           <h1>To-Do List</h1>
         </div>
-        <div className="form">
-        <form onSubmit={handleClick}>
-          <input type="text" onChange={handleChange} placeholder="Write your ToDo" value={todo} />
-          <button type="submit">
-            <span>Add</span>
-          </button>
-        </form>
-        </div>
+        <InputArea
+          onAdd={handleClick}
+        />
         <div>
           <ul>
             {todoItems.map( (todoItem, index) => {
